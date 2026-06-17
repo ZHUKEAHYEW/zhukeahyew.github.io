@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZHUKEAHYEW | 个人编年史</title>
-  <meta name="description" content="ZHUKEAHYEW 的个人网站，记录运动成绩、个人成就、作品与年度目标。">
+  <title>ZHUKEAHYEW | 个人空间</title>
+  <meta name="description" content="ZHUKEAHYEW 个人空间">
   <style>
     :root {
       --ink: #111611;
@@ -20,6 +20,7 @@
       --white: #ffffff;
       --shadow: 0 24px 80px rgba(27, 23, 19, 0.14);
       --max: 1180px;
+      --goal-stage-gap: 38px;
     }
 
     * {
@@ -34,8 +35,7 @@
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(circle at 12% 8%, rgba(125, 30, 40, 0.08), transparent 28rem),
-        linear-gradient(180deg, #f8f3eb 0%, #ffffff 46%, #edf4f1 100%);
+        linear-gradient(180deg, rgba(248, 243, 235, 0.76) 0%, rgba(255, 255, 255, 0.92) 42%, rgba(237, 244, 241, 0.92) 100%);
       font-family: Inter, "SF Pro Display", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
       line-height: 1.6;
     }
@@ -57,8 +57,8 @@
       left: 0;
       right: 0;
       border-bottom: 1px solid rgba(255, 250, 242, 0.16);
-      background: rgba(17, 22, 17, 0.38);
-      backdrop-filter: blur(18px);
+      background: rgba(17, 22, 17, 0.5);
+      backdrop-filter: blur(20px) saturate(1.1);
       color: var(--paper-bright);
     }
 
@@ -93,6 +93,7 @@
       color: var(--paper-bright);
       font-size: 13px;
       line-height: 1;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
     }
 
     .nav-links {
@@ -118,7 +119,7 @@
 
     .hero {
       position: relative;
-      min-height: 94vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -128,6 +129,16 @@
         url("assets/hero-chronicle.png");
       background-size: cover;
       background-position: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.08), transparent 36%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.26), transparent 46%);
+      pointer-events: none;
     }
 
     .hero::after {
@@ -154,38 +165,7 @@
       line-height: 0.92;
       letter-spacing: 0;
       text-transform: uppercase;
-    }
-
-    .hero-copy {
-      max-width: 620px;
-      margin: 28px 0 0;
-      color: rgba(255, 250, 242, 0.82);
-      font-size: clamp(17px, 2vw, 22px);
-    }
-
-    .hero-copy.formula {
-      max-width: 880px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(22px, 3.1vw, 38px);
-      font-weight: 700;
-      letter-spacing: 0;
-      line-height: 1.35;
-    }
-
-    .hero-copy.formula sub {
-      font-size: 0.58em;
-      line-height: 0;
-    }
-
-    .formula-label {
-      display: inline-block;
-      margin-right: 0.35em;
-      color: var(--gold);
-      font-family: Inter, "SF Pro Display", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-      font-size: 0.58em;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      vertical-align: 0.08em;
+      text-shadow: 0 22px 48px rgba(0, 0, 0, 0.35);
     }
 
     main {
@@ -199,12 +179,26 @@
       padding: 96px 0;
     }
 
+    #goals {
+      padding-top: 44px;
+      padding-bottom: 24px;
+      scroll-margin-top: 72px;
+    }
+
     .section-header {
       display: grid;
       grid-template-columns: minmax(0, 0.85fr) minmax(280px, 0.55fr);
       gap: 48px;
       align-items: end;
       margin-bottom: 36px;
+    }
+
+    #profile .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      align-items: stretch;
+      margin-bottom: 28px;
     }
 
     .section-kicker {
@@ -224,32 +218,38 @@
     }
 
     .section-lede {
+      max-width: 1160px;
       margin: 0;
       color: var(--ink-soft);
       font-size: 16px;
     }
 
+    #profile {
+      padding-top: 88px;
+    }
+
     .profile-band {
       display: grid;
-      grid-template-columns: minmax(280px, 0.82fr) minmax(300px, 1fr);
-      gap: 40px;
-      align-items: stretch;
-      padding-top: 42px;
+      grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+      gap: 64px;
+      align-items: start;
+      padding-top: 12px;
     }
 
     .poster-frame {
       position: relative;
-      min-height: 540px;
+      width: 100%;
+      margin-top: -24px;
+      aspect-ratio: 2 / 3;
       overflow: hidden;
       border: 1px solid rgba(17, 22, 17, 0.12);
-      box-shadow: var(--shadow);
+      box-shadow: 0 30px 90px rgba(27, 23, 19, 0.16);
       background: var(--paper-bright);
     }
 
     .poster-frame img {
       width: 100%;
       height: 100%;
-      min-height: 540px;
       object-fit: cover;
       object-position: center;
     }
@@ -257,33 +257,39 @@
     .profile-copy {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 48px 0;
+      justify-content: flex-start;
+      border-top: 1px solid rgba(17, 22, 17, 0.16);
+      border-bottom: 1px solid rgba(17, 22, 17, 0.16);
+      padding: 36px 0 34px;
     }
 
-    .profile-copy p {
-      max-width: 620px;
+    .intro-list {
+      display: grid;
+      gap: 8px;
+      max-width: none;
       margin: 0;
+      padding: 0;
+      list-style: none;
       color: var(--ink-soft);
-      font-size: clamp(18px, 2vw, 24px);
+      font-size: clamp(12px, 1.05vw, 15px);
+      font-weight: 800;
+      line-height: 1.55;
     }
 
     .profile-facts {
       display: grid;
       gap: 0;
-      margin: 34px 0 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      margin: 28px 0 0;
+      border-top: 1px solid rgba(17, 22, 17, 0.14);
+      border-bottom: 1px solid rgba(17, 22, 17, 0.14);
     }
 
     .fact-row {
       display: grid;
       grid-template-columns: 128px minmax(0, 1fr);
       gap: 22px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(17, 22, 17, 0.12);
     }
 
     .fact-row:last-child {
@@ -310,25 +316,66 @@
       line-height: 1.45;
     }
 
-    .profile-tags {
+    .research-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 34px;
+      gap: 8px;
     }
 
-    .tag {
-      padding: 9px 12px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.6);
-      color: var(--ink-soft);
-      font-size: 13px;
-      font-weight: 800;
+    .research-list span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid rgba(185, 120, 60, 0.28);
+      background: rgba(255, 250, 242, 0.72);
+      color: var(--wine-deep);
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: project;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .project-list li {
+      counter-increment: project;
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .project-list li::before {
+      content: counter(project) ".";
+      color: var(--wine-deep);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .project-title {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .project-date {
+      color: var(--gold);
+      font-size: 0.88em;
+      font-weight: 900;
+      white-space: nowrap;
     }
 
     .goal-wrap {
       position: relative;
-      padding: 26px 0 8px;
+      padding: 26px 0 0;
     }
 
     .goal-wrap::before {
@@ -336,7 +383,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 139px;
+      left: 20px;
       width: 1px;
       background: linear-gradient(180deg, transparent, rgba(125, 30, 40, 0.42), transparent);
     }
@@ -345,15 +392,21 @@
       position: relative;
       display: grid;
       grid-template-columns: 280px minmax(0, 1fr);
-      gap: 38px;
-      padding: 0 0 34px;
+      gap: 28px 38px;
+      min-height: calc(100vh - 216px);
+      padding: 0 0 var(--goal-stage-gap) 54px;
+      align-content: start;
+    }
+
+    .goal-item + .goal-item {
+      padding-top: var(--goal-stage-gap);
     }
 
     .goal-item::before {
       content: "";
       position: absolute;
-      top: 10px;
-      left: 132px;
+      top: 22px;
+      left: 13px;
       width: 15px;
       height: 15px;
       border: 3px solid var(--paper-bright);
@@ -362,46 +415,56 @@
       box-shadow: 0 0 0 1px rgba(125, 30, 40, 0.32);
     }
 
+    .goal-item + .goal-item::before {
+      top: calc(var(--goal-stage-gap) + 22px);
+    }
+
     .year {
-      padding-right: 30px;
+      padding-right: 0;
       color: var(--wine-deep);
       font-size: clamp(42px, 6vw, 72px);
       font-weight: 900;
       line-height: 0.9;
-      text-align: right;
+      text-align: left;
     }
 
     .goal-panel {
-      min-height: 198px;
-      padding: 26px;
+      grid-column: 1 / -1;
+      min-height: 0;
+      padding: 32px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.78);
-      box-shadow: 0 18px 54px rgba(26, 24, 20, 0.08);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 242, 0.76));
+      box-shadow: 0 18px 54px rgba(26, 24, 20, 0.07);
     }
 
     .goal-panel h3 {
       margin: 0;
-      font-size: 22px;
+      font-size: 26px;
       line-height: 1.2;
     }
 
     .goal-slots {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 28px;
     }
 
     .goal-slot {
-      min-height: 92px;
-      padding: 16px;
-      border: 1px dashed rgba(17, 22, 17, 0.24);
-      background: rgba(245, 239, 230, 0.56);
+      display: grid;
+      grid-template-columns: 80px minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      min-height: 0;
+      padding: 20px 22px;
+      border: 1px solid rgba(17, 22, 17, 0.1);
+      border-radius: 8px;
+      background: rgba(245, 239, 230, 0.6);
     }
 
-    .goal-slot span {
-      display: block;
+    .goal-slot > span:first-child {
       color: var(--gold);
       font-size: 12px;
       font-weight: 900;
@@ -411,56 +474,34 @@
 
     .goal-slot strong {
       display: block;
-      margin-top: 12px;
       color: rgba(17, 22, 17, 0.52);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 700;
+      line-height: 1.45;
     }
 
-    .closing {
-      color: var(--paper-bright);
-      background:
-        linear-gradient(135deg, rgba(17, 22, 17, 0.96), rgba(38, 79, 75, 0.9)),
-        linear-gradient(90deg, var(--wine), var(--teal));
-    }
-
-    .closing .section {
-      padding: 78px 0;
-    }
-
-    .closing-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .closing h2 {
-      margin: 0;
-      font-size: clamp(30px, 5vw, 56px);
-      line-height: 1;
-    }
-
-    .closing p {
-      max-width: 660px;
-      margin: 18px 0 0;
-      color: rgba(255, 250, 242, 0.74);
-    }
-
-    .signature {
-      width: 172px;
-      height: 172px;
-      border: 1px solid rgba(255, 250, 242, 0.25);
-      display: grid;
-      place-items: center;
-      color: rgba(255, 250, 242, 0.9);
+    .goal-month {
+      justify-self: end;
+      color: var(--wine);
+      font-size: 13px;
       font-weight: 900;
-      letter-spacing: 0.16em;
-      text-align: center;
-      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .future-note {
+      margin: 18px 0 0 318px;
+      color: var(--wine-deep);
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 900;
+      letter-spacing: 0;
     }
 
     @media (max-width: 920px) {
+      :root {
+        --goal-stage-gap: 26px;
+      }
+
       .nav {
         min-height: 64px;
       }
@@ -470,7 +511,7 @@
       }
 
       .hero {
-        min-height: auto;
+        min-height: 100vh;
         background-position: 58% center;
       }
 
@@ -482,10 +523,56 @@
         padding: 72px 0;
       }
 
+      #goals {
+        min-height: 100vh;
+        padding-top: 34px;
+        padding-bottom: 22px;
+        scroll-margin-top: 64px;
+      }
+
       .section-header,
-      .profile-band,
-      .closing-row {
+      .profile-band {
         grid-template-columns: 1fr;
+      }
+
+      #profile {
+        padding-top: 72px;
+      }
+
+      #profile .section-header {
+        gap: 24px;
+        margin-bottom: 24px;
+      }
+
+      .profile-band {
+        gap: 32px;
+        padding-top: 0;
+      }
+
+      .poster-frame {
+        width: min(100%, 460px);
+        margin: 0 auto;
+      }
+
+      .profile-copy {
+        padding: 34px 0 28px;
+      }
+
+      .project-list li {
+        grid-template-columns: 28px minmax(0, 1fr);
+      }
+
+      .project-date {
+        grid-column: 2;
+      }
+
+      .goal-slot {
+        grid-template-columns: 76px minmax(0, 1fr);
+      }
+
+      .goal-month {
+        grid-column: 2;
+        justify-self: start;
       }
 
       .goal-wrap::before {
@@ -494,12 +581,20 @@
 
       .goal-item {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: var(--goal-stage-gap);
+        min-height: calc(100vh - 236px);
         padding-left: 34px;
+        padding-bottom: var(--goal-stage-gap);
+        align-content: start;
       }
 
       .goal-item::before {
         left: 4px;
+        top: 10px;
+      }
+
+      .goal-item + .goal-item::before {
+        top: calc(var(--goal-stage-gap) + 10px);
       }
 
       .year {
@@ -507,17 +602,17 @@
         text-align: left;
       }
 
-      .goal-slots {
-        grid-template-columns: 1fr;
+      .future-note {
+        margin-left: 34px;
       }
 
-      .signature {
-        width: 140px;
-        height: 140px;
-      }
     }
 
     @media (max-width: 560px) {
+      :root {
+        --goal-stage-gap: 22px;
+      }
+
       .nav,
       .hero-inner,
       .section {
@@ -538,16 +633,45 @@
 
       .poster-frame,
       .poster-frame img {
-        min-height: 430px;
+        min-height: 0;
       }
 
       .goal-panel {
         padding: 22px;
       }
 
+      .goal-item {
+        min-height: auto;
+      }
+
+      .goal-panel h3 {
+        font-size: 22px;
+      }
+
+      .goal-slots {
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .goal-slot {
+        padding: 14px 16px;
+      }
+
+      .goal-slot strong {
+        font-size: 14px;
+      }
+
+      .future-note {
+        margin-left: 0;
+      }
+
       .fact-row {
         grid-template-columns: 1fr;
         gap: 6px;
+      }
+
+      .project-list {
+        font-size: 14px;
       }
     }
   </style>
@@ -569,7 +693,6 @@
   <section class="hero" id="top">
     <div class="hero-inner">
       <h1>ZHUKEAHYEW</h1>
-      <p class="hero-copy formula"><span class="formula-label">座右铭：</span>P(S<sub>t+1</sub>|S<sub>t</sub>,A<sub>t</sub>) = P(S<sub>t+1</sub>|S<sub>1</sub>,…,S<sub>t</sub>,A<sub>t</sub>)</p>
     </div>
   </section>
 
@@ -580,7 +703,6 @@
           <p class="section-kicker">个人简介</p>
           <h2>朱冠霖</h2>
         </div>
-        <p class="section-lede">上海交通大学 2024 级体育系运动训练专业，计算机科学与技术辅修。以运动训练为现场，以人工智能为方法，关注 AI for sports 的真实问题。</p>
       </div>
 
       <div class="profile-band">
@@ -588,39 +710,37 @@
           <img src="assets/personal-poster.png" alt="个人主题海报">
         </figure>
         <div class="profile-copy">
-          <p>从竞技训练、跨学科学习到 AI for sports 研究，把身体经验、数据理解和技术实现放在同一条成长线上。</p>
+          <ul class="intro-list">
+            <li>上海交通大学2024级体育系运动训练专业/计算机科学与技术辅修</li>
+            <li>首届华五 "AI+X" 微专业成员 第十期荣昶储才计划成员</li>
+            <li>学生创新中心具身智能科创空间"面对复杂环境的人形机器人多技能感知控制与行为生成研究" 项目组成员</li>
+            <li>上海交通大学第三批‘伯乐计划’成员</li>
+            <li>大学生创新创业训练计划"智能多模态助手机器人"项目 第一主持人</li>
+          </ul>
           <dl class="profile-facts">
             <div class="fact-row">
-              <dt>姓名</dt>
-              <dd>朱冠霖</dd>
-            </div>
-            <div class="fact-row">
-              <dt>生日</dt>
-              <dd>2005.10.14</dd>
-            </div>
-            <div class="fact-row">
-              <dt>学校与专业</dt>
-              <dd>上海交通大学 2024 级体育系运动训练专业</dd>
-            </div>
-            <div class="fact-row">
-              <dt>辅修</dt>
-              <dd>计算机科学与技术</dd>
-            </div>
-            <div class="fact-row">
-              <dt>成就</dt>
-              <dd>首届华五 “AI+X” 微专业成员；第十期荣昶储才计划成员</dd>
-            </div>
-            <div class="fact-row">
               <dt>研究方向</dt>
-              <dd>AI for sports</dd>
+              <dd class="research-list">
+                <span>具身智能</span>
+                <span>强化学习</span>
+                <span>深度学习</span>
+                <span>AI for sports</span>
+              </dd>
+            </div>
+            <div class="fact-row">
+              <dt>在研项目</dt>
+              <dd>
+                <ol class="project-list">
+                  <li><span class="project-title">"智能出行助手"校级PRP项目</span><span class="project-date">2025.9 - 2026.3</span></li>
+                  <li><span class="project-title">"智能多模态助手机器人"大学生创新创业训练计划</span><span class="project-date">2025.10 - 2026.9</span></li>
+                  <li><span class="project-title">上海交通大学学生创新中心具身智能实验室"面对复杂环境的人形机器人多技能感知控制与行为生成研究"</span><span class="project-date">2026.3 -</span></li>
+                  <li><span class="project-title">"Knowledge Graph-Based Exercise Prescription Agent"</span><span class="project-date">2026.6 -</span></li>
+                  <li><span class="project-title">基于强化学习的羽毛球标准击球动作建模与应用</span><span class="project-date">2026.6 -</span></li>
+                  <li><span class="project-title">深度学习驱动的羽毛球分析系统</span><span class="project-date">2024.10 -</span></li>
+                </ol>
+              </dd>
             </div>
           </dl>
-          <div class="profile-tags">
-            <span class="tag">运动训练</span>
-            <span class="tag">计算机科学</span>
-            <span class="tag">AI+X</span>
-            <span class="tag">AI for sports</span>
-          </div>
         </div>
       </div>
     </section>
@@ -628,29 +748,37 @@
     <section class="section" id="goals">
       <div class="section-header">
         <div>
-          <p class="section-kicker">目标时间线</p>
+          <p class="section-kicker">未来目标</p>
           <h2>按年份推进目标</h2>
         </div>
-        <p class="section-lede">目标按时间线展示，先用 2026、2027、2028+ 做主轴。每一年都可以拆成训练、学习、作品或生活目标。</p>
+        <p class="section-lede">2026 2027 两年冲刺计划</p>
       </div>
 
       <div class="goal-wrap">
         <article class="goal-item">
           <div class="year">2026</div>
           <div class="goal-panel">
-            <h3>建立稳定节奏</h3>
+            <h3>微小积累，长期主义</h3>
             <div class="goal-slots">
               <div class="goal-slot">
                 <span>目标 01</span>
-                <strong>待填写</strong>
+                <strong>入选上海交通大学第三批“伯乐计划”</strong>
+                <span class="goal-month">7月</span>
               </div>
               <div class="goal-slot">
                 <span>目标 02</span>
-                <strong>待填写</strong>
+                <strong>通过教师资格证笔试与面试</strong>
+                <span class="goal-month">9月</span>
               </div>
               <div class="goal-slot">
                 <span>目标 03</span>
-                <strong>待填写</strong>
+                <strong>参与中国国际进口博览会志愿服务</strong>
+                <span class="goal-month">10月</span>
+              </div>
+              <div class="goal-slot">
+                <span>目标 04</span>
+                <strong>推进具身智能实验室人形机器人多技能感知控制项目，冲刺顶刊论文发表</strong>
+                <span class="goal-month">12月</span>
               </div>
             </div>
           </div>
@@ -659,58 +787,40 @@
         <article class="goal-item">
           <div class="year">2027</div>
           <div class="goal-panel">
-            <h3>扩大成果半径</h3>
+            <h3>微光汇聚，终成星河</h3>
             <div class="goal-slots">
               <div class="goal-slot">
                 <span>目标 01</span>
-                <strong>待填写</strong>
+                <strong>完成“伯乐计划”科研项目论文发表</strong>
               </div>
               <div class="goal-slot">
                 <span>目标 02</span>
-                <strong>待填写</strong>
+                <strong>参加美国大学生数学建模大赛</strong>
+                <span class="goal-month">1月</span>
               </div>
               <div class="goal-slot">
                 <span>目标 03</span>
-                <strong>待填写</strong>
+                <strong>获得计算机学院或人工智能学院直博夏令营优秀营员</strong>
+                <span class="goal-month">6月 - 7月</span>
+              </div>
+              <div class="goal-slot">
+                <span>目标 04</span>
+                <strong>获得支教保研资格</strong>
+                <span class="goal-month">9月</span>
+              </div>
+              <div class="goal-slot">
+                <span>目标 05</span> 
+                <strong>组建团队，开始“元素大陆”项目开发</strong>
+                <span class="goal-month">10月</span>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="goal-item">
-          <div class="year">2028+</div>
-          <div class="goal-panel">
-            <h3>形成长期作品线</h3>
-            <div class="goal-slots">
-              <div class="goal-slot">
-                <span>目标 01</span>
-                <strong>待填写</strong>
-              </div>
-              <div class="goal-slot">
-                <span>目标 02</span>
-                <strong>待填写</strong>
-              </div>
-              <div class="goal-slot">
-                <span>目标 03</span>
-                <strong>待填写</strong>
-              </div>
-            </div>
-          </div>
-        </article>
+        <p class="future-note">未来，拭目以待</p>
       </div>
     </section>
   </main>
 
-  <footer class="closing">
-    <section class="section">
-      <div class="closing-row">
-        <div>
-          <h2>继续前进。</h2>
-          <p>这页先作为个人主页的骨架：个人简介、视觉表达和目标时间线已经就位，后续只需要把真实记录逐步补进去。</p>
-        </div>
-        <div class="signature">个人<br>编年史</div>
-      </div>
-    </section>
-  </footer>
 </body>
 </html>
