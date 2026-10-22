@@ -38,7 +38,6 @@
       --line: #dce5e1;
       --green: #166c60;
       --warm: #a45c37;
-      --paper: #f5f8f6;
       --max: 1120px;
       --header-h: 60px;
     }
@@ -201,12 +200,6 @@
     .research-heading .research-title { margin: 0; }
     .research-link { font-size: 12.5px; font-weight: 650; white-space: nowrap; }
     .research-link::after { content: "↗"; margin-left: 4px; font-size: 11px; }
-    .research-item details { margin-top: 10px; }
-    .research-item summary { display: inline-flex; cursor: pointer; color: var(--green); font-size: 12.5px; font-weight: 650; list-style: none; }
-    .research-item summary::-webkit-details-marker { display: none; }
-    .research-item summary::before { content: "▸"; margin-right: 6px; transition: transform .18s ease; }
-    .research-item details[open] summary::before { transform: rotate(90deg); }
-    .research-abstract { margin: 9px 0 0; padding: 12px 14px; background: var(--paper); border-left: 2px solid var(--green); font-size: 13px; line-height: 1.72; }
 
     /* Education */
     .edu-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
@@ -257,7 +250,6 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .research-item summary::before { transition: none; }
     }
   </style>
   <script>
@@ -345,6 +337,8 @@
         <h2 class="section-heading" id="news-title"><span class="emoji" aria-hidden="true">🔥</span> <span data-i18n="news.title">近期动态</span></h2>
         <div class="news-scroll" aria-label="近期动态" data-i18n="news.label" data-i18n-attr="aria-label">
           <ul>
+            <li><time datetime="2026-10">[2026.10]</time> <span data-i18n="news.11">获得 <strong>2026 年国家奖学金</strong>。</span></li>
+            <li><time datetime="2026-10">[2026.10]</time> <span data-i18n="news.12">获评 <strong>2026 年校级三好学生</strong>。</span></li>
             <li><time datetime="2026-08">[2026.08]</time> <span data-i18n="news.2">获得全国大学生羽毛球锦标赛（总决赛）<strong>男子团体季军</strong> 🥉 与 <strong>男子单打亚军</strong> 🥈。</span></li>
             <li><time datetime="2026-08">[2026.08]</time> <span data-i18n="news.1">获得全国大学生羽毛球锦标赛（南区赛）<strong>男子团体冠军</strong> 🥇，男子单打第五名。</span></li>
             <li><time datetime="2026-07">[2026.07]</time> <span data-i18n="news.3">入选上海交通大学<strong>第三期伯乐计划</strong>。</span></li>
@@ -375,10 +369,6 @@
               </div>
               <p class="research-meta" data-i18n="r1.meta"><time>2026.06 – 至今</time></p>
               <p class="research-summary" data-i18n="r1.summary">基于知识图谱构建运动处方智能体，连接训练知识、个体状态与建议生成。</p>
-              <details>
-                <summary data-i18n="abstract.label">摘要</summary>
-                <p class="research-abstract" data-i18n="r1.abstract">运动处方的生成需要同时考虑训练知识、个体状态与现实约束。本项目以知识图谱组织动作、训练变量与运动员状态之间的关系，并在此基础上构建智能体，探索可解释、可个性化的处方建议生成流程。本人主要负责知识建模，以及图谱检索与建议生成之间的衔接。</p>
-              </details>
             </div>
           </div>
         </article>
@@ -393,10 +383,6 @@
               <h3 class="research-title" data-i18n="r2.title">基于强化学习的羽毛球标准击球动作建模与应用</h3>
               <p class="research-meta" data-i18n="r2.meta"><time>2026.06 – 至今</time></p>
               <p class="research-summary" data-i18n="r2.summary">将标准击球动作转化为可学习、可评估的动作模型，探索强化学习在运动训练中的应用。</p>
-              <details>
-                <summary data-i18n="abstract.label">摘要</summary>
-                <p class="research-abstract" data-i18n="r2.abstract">把标准击球动作表示为可学习、可评估的模型，是运动训练与强化学习交叉的核心问题。本项目尝试将专业运动员的击球动作转化为可量化的动作表征，并借助强化学习方法探索动作质量评估与训练反馈的自动化路径。</p>
-              </details>
             </div>
           </div>
         </article>
@@ -411,10 +397,6 @@
               <h3 class="research-title" data-i18n="r3.title">面向复杂环境的人形机器人多技能感知控制与行为生成研究</h3>
               <p class="research-meta" data-i18n="r3.meta"><time>2026.03 – 至今</time></p>
               <p class="research-summary" data-i18n="r3.summary">负责教师策略与学生策略框架搭建，探索复杂环境中的技能迁移。</p>
-              <details>
-                <summary data-i18n="abstract.label">摘要</summary>
-                <p class="research-abstract" data-i18n="r3.abstract">面向复杂、非结构化环境，研究人形机器人在多技能条件下的感知与控制问题。本人负责教师策略与学生策略框架的搭建，探索技能之间的迁移与协同。</p>
-              </details>
             </div>
           </div>
         </article>
@@ -425,10 +407,6 @@
             <h3 class="research-title" data-i18n="r4.title">“智能多模态助手机器人”大学生创新创业训练计划</h3>
             <p class="research-meta" data-i18n="r4.meta"><time>2025.10 – 2026.09</time></p>
             <p class="research-summary" data-i18n="r4.summary">推进多模态交互、任务理解与机器人助手系统设计。</p>
-            <details>
-              <summary data-i18n="abstract.label">摘要</summary>
-              <p class="research-abstract" data-i18n="r4.abstract">围绕多模态交互与任务理解，设计能够响应语音、视觉等多源输入的助手机器人系统。作为第一主持人，负责项目整体设计、任务分工与多模态交互模块的推进。</p>
-            </details>
           </div>
         </article>
 
@@ -438,10 +416,6 @@
             <h3 class="research-title" data-i18n="r5.title">智行无忧-人体感应智能家居外出助手</h3>
             <p class="research-meta" data-i18n="r5.meta"><time>2025.09 – 2026.03</time></p>
             <p class="research-summary" data-i18n="r5.summary">围绕智能出行场景进行系统设计与协同开发，担任项目组组长。</p>
-            <details>
-              <summary data-i18n="abstract.label">摘要</summary>
-              <p class="research-abstract" data-i18n="r5.abstract">围绕智能出行场景进行系统需求分析与协同开发，探索出行信息的智能组织与推荐。担任项目组组长，负责需求梳理、任务拆分与项目进度推进。</p>
-            </details>
           </div>
         </article>
 
@@ -451,10 +425,6 @@
             <h3 class="research-title" data-i18n="r6.title">深度学习驱动的羽毛球分析系统</h3>
             <p class="research-meta" data-i18n="r6.meta"><time>2024.10 – 至今</time></p>
             <p class="research-summary" data-i18n="r6.summary">围绕羽毛球视频与训练数据构建分析能力，为动作理解和训练反馈提供技术支持。</p>
-            <details>
-              <summary data-i18n="abstract.label">摘要</summary>
-              <p class="research-abstract" data-i18n="r6.abstract">围绕羽毛球视频与训练数据构建分析能力，为动作理解与训练反馈提供技术支持。该项目是长期推进的 AI4Sport 研究方向，也是后续动作建模与处方智能体工作的基础。</p>
-            </details>
           </div>
         </article>
       </section>
@@ -481,6 +451,8 @@
           <div>
             <h3 data-i18n="awards.general">General</h3>
             <ul>
+              <li><strong>2026</strong><span data-i18n="award.g5">国家奖学金</span></li>
+              <li><strong>2026</strong><span data-i18n="award.g6">校级三好学生</span></li>
               <li><strong>2026.07</strong><span data-i18n="award.g1">上海交通大学第三期伯乐计划成员</span></li>
               <li><strong>2025</strong><span data-i18n="award.g2">上海交通大学 B 等优秀奖学金</span></li>
               <li><strong>2025</strong><span data-i18n="award.g3">首届华五 AI+X 微专业成员</span></li>
@@ -491,13 +463,14 @@
             <h3 data-i18n="awards.sports">Sports</h3>
             <ul>
               <li><strong>—</strong><span data-i18n="award.s1">国家一级羽毛球运动员</span></li>
-              <li><strong>2026.08</strong><span data-i18n="award.s2">全国大学生羽毛球锦标赛（南区赛）男子团体冠军 🥇 · 男子单打第五名</span></li>
-              <li><strong>2026.08</strong><span data-i18n="award.s3">全国大学生羽毛球锦标赛（总决赛）男子团体季军 🥉 · 男子单打亚军 🥈</span></li>
-              <li><strong>2025</strong><span data-i18n="award.s4">上海市大学生羽毛球锦标赛 团体冠军 🥇</span></li>
-              <li><strong>2025</strong><span data-i18n="award.s5">全国大学生羽毛球锦标赛南区赛 团体亚军 🥈</span></li>
-              <li><strong>2024</strong><span data-i18n="award.s6">全国高中生羽毛球锦标赛 男子单打冠军 🥇</span></li>
-              <li><strong>2024</strong><span data-i18n="award.s7">上海市运动会 团体亚军 🥈 · 男子单打季军 🥉</span></li>
-              <li><strong data-i18n="award.hs">高中</strong><span data-i18n="award.s8">四川省中学生羽毛球赛 男子单打冠军 🥇 · 男子双打亚军 🥈 · 团体冠军 🥇</span></li>
+              <li><strong>2026.08</strong><span data-i18n="award.s2">全国大学生羽毛球锦标赛（总决赛）男子单打亚军 🥈</span></li>
+              <li><strong>2026.08</strong><span data-i18n="award.s3">全国大学生羽毛球锦标赛（总决赛）男子团体季军 🥉</span></li>
+              <li><strong>2026.08</strong><span data-i18n="award.s4">全国大学生羽毛球锦标赛（南区赛）男子单打第五名</span></li>
+              <li><strong>2026.08</strong><span data-i18n="award.s5">全国大学生羽毛球锦标赛（南区赛）男子团体冠军 🥇</span></li>
+              <li><strong>2025</strong><span data-i18n="award.s6">上海市大学生羽毛球锦标赛 团体冠军 🥇</span></li>
+              <li><strong>2025</strong><span data-i18n="award.s7">全国大学生羽毛球锦标赛南区赛 团体亚军 🥈</span></li>
+              <li><strong>2024</strong><span data-i18n="award.s8">全国高中生羽毛球锦标赛 男子单打冠军 🥇</span></li>
+              <li><strong>2024</strong><span data-i18n="award.s9">上海市运动会 团体亚军 🥈 · 男子单打季军 🥉</span></li>
             </ul>
           </div>
         </div>
@@ -536,6 +509,8 @@
         "about.p3": "If you are interested, please feel free to <a href=\"#contact\">contact me</a>.",
         "news.title": "News",
         "news.label": "Recent news",
+        "news.11": "Awarded the <strong>2026 National Scholarship</strong>.",
+        "news.12": "Recognized as a <strong>2026 University-Level Merit Student</strong>.",
         "news.1": "Won the <strong>men's team title</strong> 🥇 and placed 5th in men's singles at the National University Badminton Championship (South Region).",
         "news.2": "Won <strong>men's team bronze</strong> 🥉 and <strong>men's singles silver</strong> 🥈 at the National University Badminton Championship (Finals).",
         "news.3": "Selected for the <strong>3rd Boya Program</strong> of Shanghai Jiao Tong University.",
@@ -547,34 +522,27 @@
         "news.9": "Joined research on a deep-learning-driven badminton analysis system, ongoing.",
         "news.10": "Enrolled in the Sports Training program at Shanghai Jiao Tong University.",
         "research.title": "Research",
-        "abstract.label": "Abstract",
         "r1.title": "Knowledge Graph-Based Exercise Prescription Agent",
         "r1.figure": "Illustration of the knowledge graph-based exercise prescription agent",
         "r1.meta": "<time>2026.06 – Present</time>",
         "r1.summary": "Building an exercise-prescription agent on a knowledge graph that connects training knowledge, individual status, and recommendation generation.",
-        "r1.abstract": "Generating an exercise prescription requires jointly reasoning over training knowledge, individual status, and real-world constraints. This project organizes the relationships among exercises, training variables, and athlete states as a knowledge graph, and builds an agent on top of it to explore interpretable, personalized prescription generation. My work focuses on knowledge modeling and the link between graph retrieval and recommendation generation.",
         "r2.title": "Reinforcement Learning for Modeling and Applying Standard Badminton Strokes",
         "r2.figure": "Illustration of standard badminton stroke modeling",
         "r2.meta": "<time>2026.06 – Present</time>",
         "r2.summary": "Turning standard strokes into learnable, evaluable motion models and exploring reinforcement learning for sports training.",
-        "r2.abstract": "Representing standard strokes as learnable and evaluable models is a core problem at the intersection of sports training and reinforcement learning. This project converts professional players' strokes into quantifiable motion representations and uses reinforcement learning to explore automated stroke-quality assessment and training feedback.",
         "r3.title": "Multi-Skill Perception, Control, and Behavior Generation for Humanoid Robots in Complex Environments",
         "r3.figure": "Illustration of multi-skill perception and control for humanoid robots",
         "r3.meta": "<time>2026.03 – Present</time>",
         "r3.summary": "Building teacher- and student-policy frameworks and exploring skill transfer in complex environments.",
-        "r3.abstract": "This work studies perception and control for humanoid robots with multiple skills in complex, unstructured environments. I am responsible for building the teacher- and student-policy frameworks and exploring skill transfer and coordination.",
         "r4.title": "\"Intelligent Multimodal Assistant Robot\" Undergraduate Innovation and Entrepreneurship Program",
         "r4.meta": "<time>2025.10 – 2026.09</time>",
         "r4.summary": "Advancing multimodal interaction, task understanding, and robot-assistant system design.",
-        "r4.abstract": "Centered on multimodal interaction and task understanding, this project designs an assistant robot that responds to multi-source inputs such as speech and vision. As first principal investigator, I am responsible for overall design, task allocation, and the multimodal interaction module.",
         "r5.title": "Zhixing Wuyou: Human-Sensing Smart Home Outdoor Assistant",
         "r5.meta": "<time>2025.09 – 2026.03</time>",
         "r5.summary": "System design and collaborative development for smart-mobility scenarios, as team leader.",
-        "r5.abstract": "This project analyzes requirements and develops a system for smart-mobility scenarios, exploring intelligent organization and recommendation of travel information. As team leader, I handle requirement analysis, task breakdown, and project progress.",
         "r6.title": "Deep-Learning-Driven Badminton Analysis System",
         "r6.meta": "<time>2024.10 – Present</time>",
         "r6.summary": "Building analysis capabilities from badminton video and training data to support motion understanding and training feedback.",
-        "r6.abstract": "This project builds analysis capabilities from badminton video and training data to support motion understanding and training feedback. It is a long-running AI4Sport direction and the foundation for subsequent motion-modeling and prescription-agent work.",
         "edu.title": "Education",
         "edu.school": "Shanghai Jiao Tong University <span>上海交通大学</span>",
         "edu.degree1": "Sports Training",
@@ -582,19 +550,21 @@
         "awards.title": "Awards &amp; Honors",
         "awards.general": "General",
         "awards.sports": "Sports",
+        "award.g5": "National Scholarship",
+        "award.g6": "University-Level Merit Student",
         "award.g1": "Member of the 3rd Boya Program, Shanghai Jiao Tong University",
         "award.g2": "Class B Excellence Scholarship, Shanghai Jiao Tong University",
         "award.g3": "Member of the inaugural AI+X Micro Program, Five-University Alliance (Huawu)",
         "award.g4": "Member of the 10th Rongchang Chucai Program",
-        "award.hs": "HS",
         "award.s1": "National First-Class Badminton Athlete",
-        "award.s2": "National University Badminton Championship (South Region) — Men's Team Champion 🥇 · Men's Singles 5th Place",
-        "award.s3": "National University Badminton Championship (Finals) — Men's Team Bronze 🥉 · Men's Singles Silver 🥈",
-        "award.s4": "Shanghai University Badminton Championship — Team Champion 🥇",
-        "award.s5": "National University Badminton Championship, South Region — Team Runner-up 🥈",
-        "award.s6": "National High School Badminton Championship — Men's Singles Champion 🥇",
-        "award.s7": "Shanghai Municipal Games — Team Runner-up 🥈 · Men's Singles Bronze 🥉",
-        "award.s8": "Sichuan Provincial Middle School Badminton Championship — Men's Singles Champion 🥇 · Men's Doubles Runner-up 🥈 · Team Champion 🥇",
+        "award.s2": "National University Badminton Championship (Finals) — Men's Singles Silver 🥈",
+        "award.s3": "National University Badminton Championship (Finals) — Men's Team Bronze 🥉",
+        "award.s4": "National University Badminton Championship (South Region) — Men's Singles 5th Place",
+        "award.s5": "National University Badminton Championship (South Region) — Men's Team Champion 🥇",
+        "award.s6": "Shanghai University Badminton Championship — Team Champion 🥇",
+        "award.s7": "National University Badminton Championship, South Region — Team Runner-up 🥈",
+        "award.s8": "National High School Badminton Championship — Men's Singles Champion 🥇",
+        "award.s9": "Shanghai Municipal Games — Team Runner-up 🥈 · Men's Singles Bronze 🥉",
         "contact.title": "Contact",
         "contact.p1": "Welcome to collaborate 👏",
         "contact.email": "Email: ",
